@@ -1,0 +1,1 @@
+export { AdapterConfig } from './AdapterConfig'

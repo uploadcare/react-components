@@ -1,0 +1,30 @@
+{
+  "name": "@uploadcare/react-uploader",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/react-uploader.libs.cjs.js",
+  "module": "./dist/react-uploader.libs.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/react-uploader.libs.es.js",
+      "require": "./dist/react-uploader.libs.cjs.js"
+    }
+  },
+  "scripts": {
+    "dev": "tsc && vite build --watch",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+
+  "peerDependencies": {
+    "@types/react": "17 || 18"
+  },
+  "dependencies": {
+    "@uploadcare/blocks": "^0.35.2"
+  }
+}
