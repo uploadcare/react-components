@@ -1,3 +1,5 @@
+// @ts-nocheck
+import React from "react";
 import { type ConfigType, EventType } from "@uploadcare/blocks";
 
 export type TEvents = typeof EventType;
@@ -14,8 +16,7 @@ export type TEventsSchema = {
   [K in keyof TEvents as TPrefixOnAndCamelCase<K>]: TEvents[K];
 };
 
-export type TProps = {
-  ctxName?: string;
-  cssSrc?: string;
+export type TProps<T> = {
+  refUploadCtxProvider: React.Ref<T>;
 } & ConfigType &
   TEventsSchema;

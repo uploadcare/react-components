@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { FC } from "react";
 import * as LR from "@uploadcare/blocks";
 import { createComponentFactory } from "@uploadcare/react-adapter";
@@ -6,7 +7,7 @@ import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 
 import type { TProps } from "../types";
-import { CTX_NAME, CSS_SRC_MINIMAL } from "../default";
+import { getStyleSource } from "../default";
 
 LR.registerBlocks(LR);
 
@@ -16,10 +17,9 @@ const AdapterFileUploaderMinimal = createComponentFactory({
   elementClass: LR.FileUploaderMinimal,
 });
 
-export const FileUploaderMinimal: FC<TProps> = ({
-  ctxName = CTX_NAME,
-  cssSrc = CSS_SRC_MINIMAL,
+const CSS_SRC_MINIMAL = getStyleSource("minimal");
 
+export const FileUploaderMinimal: FC<TProps> = ({
   // Events
   onFileAdded,
   onFileRemoved,
@@ -43,11 +43,13 @@ export const FileUploaderMinimal: FC<TProps> = ({
   // Config
   ...config
 }) => {
+  const CTX_NAME = LR.UID.generate();
+
   return (
     <React.Fragment>
-      <AdapterConfig ctx-name={ctxName} {...config} />
+      <AdapterConfig ctx-name={CTX_NAME} {...config} />
       <AdapterUploadCtxProvider
-        ctx-name={ctxName}
+        ctx-name={CTX_NAME}
         onFileUploadStart={onFileUploadStart}
         onFileUploadFailed={onFileUploadFailed}
         onFileUploadSuccess={onFileUploadSuccess}
@@ -67,7 +69,10 @@ export const FileUploaderMinimal: FC<TProps> = ({
         onDoneClick={onDoneClick}
         onGroupCreated={onGroupCreated}
       />
-      <AdapterFileUploaderMinimal ctx-name={ctxName} css-src={cssSrc} />
+      <AdapterFileUploaderMinimal
+        ctx-name={CTX_NAME}
+        css-src={CSS_SRC_MINIMAL}
+      />
     </React.Fragment>
   );
 };

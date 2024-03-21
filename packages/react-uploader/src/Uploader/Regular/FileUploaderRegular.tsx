@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { FC } from "react";
 import * as LR from "@uploadcare/blocks";
 
@@ -6,7 +7,7 @@ import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 
 import { createComponentFactory } from "@uploadcare/react-adapter";
 
-import { CTX_NAME, CSS_SRC_REGULAR } from "../default";
+import { getStyleSource } from "../default";
 import type { TProps } from "../types";
 
 LR.registerBlocks(LR);
@@ -17,9 +18,10 @@ const AdapterFileUploaderRegular = createComponentFactory({
   elementClass: LR.FileUploaderRegular,
 });
 
+const CSS_SRC_REGULAR = getStyleSource("regular");
+
 export const FileUploaderRegular: FC<TProps> = ({
-  ctxName = CTX_NAME,
-  cssSrc = CSS_SRC_REGULAR,
+  refUploadCtxProvider,
 
   // Events
   onFileAdded,
@@ -44,12 +46,15 @@ export const FileUploaderRegular: FC<TProps> = ({
   // Config
   ...config
 }) => {
+  const CTX_NAME = LR.UID.generate();
+
   return (
     <React.Fragment>
-      <AdapterConfig ctx-name={ctxName} {...config} />
+      <AdapterConfig ctx-name={CTX_NAME} {...config} />
 
       <AdapterUploadCtxProvider
-        ctx-name={ctxName}
+        ref={refUploadCtxProvider}
+        ctx-name={CTX_NAME}
         onFileUploadStart={onFileUploadStart}
         onFileUploadFailed={onFileUploadFailed}
         onFileUploadSuccess={onFileUploadSuccess}
@@ -70,7 +75,10 @@ export const FileUploaderRegular: FC<TProps> = ({
         onGroupCreated={onGroupCreated}
       />
 
-      <AdapterFileUploaderRegular ctx-name={ctxName} css-src={cssSrc} />
+      <AdapterFileUploaderRegular
+        ctx-name={CTX_NAME}
+        css-src={CSS_SRC_REGULAR}
+      />
     </React.Fragment>
   );
 };

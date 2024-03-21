@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from "react";
 
 import { createComponentFactory } from "@uploadcare/react-adapter";

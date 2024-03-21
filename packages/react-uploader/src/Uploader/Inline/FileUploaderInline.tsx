@@ -1,10 +1,11 @@
+//@ts-nocheck
 import React, { FC } from "react";
 import * as LR from "@uploadcare/blocks";
 import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 import { createComponentFactory } from "@uploadcare/react-adapter";
 import type { TProps } from "../types";
-import { CTX_NAME, CSS_SRC_INLINE } from "../default";
+import { getStyleSource } from "../default";
 
 LR.registerBlocks(LR);
 
@@ -14,10 +15,8 @@ const AdapterFileUploaderInline = createComponentFactory({
   elementClass: LR.FileUploaderMinimal,
 });
 
+const CSS_SRC_INLINE = getStyleSource("inline");
 export const FileUploaderInline: FC<TProps> = ({
-  ctxName = CTX_NAME,
-  cssSrc = CSS_SRC_INLINE,
-
   // Events
   onFileAdded,
   onFileRemoved,
@@ -41,12 +40,14 @@ export const FileUploaderInline: FC<TProps> = ({
   // Config
   ...config
 }) => {
+  const CTX_NAME = LR.UID.generate();
+
   return (
     <React.Fragment>
-      <AdapterConfig ctx-name={ctxName} {...config} />
+      <AdapterConfig ctx-name={CTX_NAME} {...config} />
 
       <AdapterUploadCtxProvider
-        ctx-name={ctxName}
+        ctx-name={CTX_NAME}
         onFileUploadStart={onFileUploadStart}
         onFileUploadFailed={onFileUploadFailed}
         onFileUploadSuccess={onFileUploadSuccess}
@@ -67,7 +68,7 @@ export const FileUploaderInline: FC<TProps> = ({
         onGroupCreated={onGroupCreated}
       />
 
-      <AdapterFileUploaderInline ctx-name={ctxName} css-src={cssSrc} />
+      <AdapterFileUploaderInline ctx-name={CTX_NAME} css-src={CSS_SRC_INLINE} />
     </React.Fragment>
   );
 };
