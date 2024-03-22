@@ -16,7 +16,7 @@ export type TEventsSchema = {
   [K in keyof TEvents as TPrefixOnAndCamelCase<K>]: TEvents[K];
 };
 
-export type TProps<T> = {
-  refUploadCtxProvider: React.Ref<T>;
+export type TProps = {
+  refUploadCtxProvider: React.Ref<HTMLElement>;
 } & ConfigType &
   TEventsSchema;

@@ -1,5 +1,5 @@
 //@ts-nocheck
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import * as LR from "@uploadcare/blocks";
 
 import { AdapterConfig } from "../core/AdapterConfig";
@@ -9,6 +9,7 @@ import { createComponentFactory } from "@uploadcare/react-adapter";
 
 import { getStyleSource } from "../default";
 import type { TProps } from "../types";
+import { getEventHandlersOfProps } from "../../utils/getEventHandlersOfProps.ts";
 
 LR.registerBlocks(LR);
 
@@ -22,31 +23,15 @@ const CSS_SRC_REGULAR = getStyleSource("regular");
 
 export const FileUploaderRegular: FC<TProps> = ({
   refUploadCtxProvider,
-
-  // Events
-  onFileAdded,
-  onFileRemoved,
-  onFileUploadStart,
-  onFileUploadProgress,
-  onFileUploadSuccess,
-  onFileUploadFailed,
-  onFileUrlChanged,
-  onModalOpen,
-  onModalClose,
-  onDoneClick,
-  onUploadClick,
-  onActivityChange,
-  onCommonUploadStart,
-  onCommonUploadProgress,
-  onCommonUploadSuccess,
-  onCommonUploadFailed,
-  onChange,
-  onGroupCreated,
-
-  // Config
-  ...config
+  ...props
 }) => {
+  const { ...config } = props;
   const CTX_NAME = LR.UID.generate();
+
+  const eventHandlers = useMemo(
+    () => getEventHandlersOfProps(config, props),
+    [],
+  );
 
   return (
     <React.Fragment>
@@ -55,24 +40,7 @@ export const FileUploaderRegular: FC<TProps> = ({
       <AdapterUploadCtxProvider
         ref={refUploadCtxProvider}
         ctx-name={CTX_NAME}
-        onFileUploadStart={onFileUploadStart}
-        onFileUploadFailed={onFileUploadFailed}
-        onFileUploadSuccess={onFileUploadSuccess}
-        onFileUploadProgress={onFileUploadProgress}
-        onFileRemoved={onFileRemoved}
-        onFileAdded={onFileAdded}
-        onUploadClick={onUploadClick}
-        onActivityChange={onActivityChange}
-        onChange={onChange}
-        onCommonUploadFailed={onCommonUploadFailed}
-        onCommonUploadProgress={onCommonUploadProgress}
-        onCommonUploadStart={onCommonUploadStart}
-        onCommonUploadSuccess={onCommonUploadSuccess}
-        onFileUrlChanged={onFileUrlChanged}
-        onModalClose={onModalClose}
-        onModalOpen={onModalOpen}
-        onDoneClick={onDoneClick}
-        onGroupCreated={onGroupCreated}
+        {...eventHandlers}
       />
 
       <AdapterFileUploaderRegular
