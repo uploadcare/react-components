@@ -1,12 +1,13 @@
-//@ts-nocheck
 import React, { FC, useMemo } from "react";
 import * as LR from "@uploadcare/blocks";
 import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
+
+// @ts-ignore
 import { createComponentFactory } from "@uploadcare/react-adapter";
 import type { TProps } from "../types";
 import { getStyleSource } from "../default";
-import { getEventHandlersOfProps } from "../../utils/getEventHandlersOfProps.ts";
+import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps.ts";
 
 LR.registerBlocks(LR);
 
@@ -21,12 +22,11 @@ export const FileUploaderInline: FC<TProps> = ({
   refUploadCtxProvider,
   ...props
 }) => {
-  const { ...config } = props;
-  const CTX_NAME = LR.UID.generate();
+  const CTX_NAME = useMemo(() => LR.UID.generate(), [LR.UID.generate]);
 
-  const eventHandlers = useMemo(
-    () => getEventHandlersOfProps(config, props),
-    [],
+  const { eventHandlers, config } = useMemo(
+    () => getCalcPropertyOfProps(props),
+    [props],
   );
 
   return (

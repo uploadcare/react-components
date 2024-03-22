@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { PACKAGE_VERSION } from "@uploadcare/blocks";
 
 export type TTypeUploader = "regular" | "minimal" | "inline";
