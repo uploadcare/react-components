@@ -1,3 +1,4 @@
+// @ts-nocheck
 // @TODO add types
 export const getCalcPropertyOfProps = (props) => {
   const eventHandlers = {};

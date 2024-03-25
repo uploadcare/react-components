@@ -1,11 +1,8 @@
 import React, { FC, useMemo } from "react";
 import * as LR from "@uploadcare/blocks";
-// @ts-ignore
 import { createComponentFactory } from "@uploadcare/react-adapter";
-
 import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
-
 import type { TProps } from "../types";
 import { getStyleSource } from "../default";
 import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps.ts";
