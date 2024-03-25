@@ -1,6 +1,7 @@
 // vite.config.js
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
@@ -10,8 +11,7 @@ export default defineConfig({
 
       formats: ["es", "cjs"],
 
-      fileName: (format, entryName) =>
-        `react-adapter.${entryName}.${format}.js`,
+      fileName: "react-adapter",
     },
     rollupOptions: {
       external: ["react"],
@@ -22,4 +22,5 @@ export default defineConfig({
       },
     },
   },
+  plugins: [dts({ rollupTypes: true, insertTypesEntry: true })],
 });
