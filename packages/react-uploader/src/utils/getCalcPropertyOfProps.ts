@@ -1,8 +1,6 @@
-// @ts-nocheck
-// @TODO add types
-export const getCalcPropertyOfProps = (props) => {
-  const eventHandlers = {};
-  const config = {};
+export const getCalcPropertyOfProps = (props: Record<string, unknown>) => {
+  const eventHandlers: Record<string, unknown> = {};
+  const config: Record<string, unknown> = {};
 
   Object.entries(props).forEach(([key, value]) => {
     if (key.startsWith("on")) {
