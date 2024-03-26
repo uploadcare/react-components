@@ -1,27 +1,26 @@
 // vite.config.js
-import { resolve } from 'path'
-import { defineConfig } from 'vite'
+import { resolve } from "path";
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
     lib: {
-      entry: [
-        resolve(__dirname, 'src/libs.ts'),
-      ],
-      name: '@uploadcare/react-uploader',
+      entry: [resolve(__dirname, "src/libs.ts")],
+      name: "@uploadcare/react-uploader",
 
-      formats: ['es', 'cjs'],
+      formats: ["es", "cjs"],
 
-      fileName: (format, entryName) =>
-        `react-uploader.${entryName}.${format}.js`,
+      fileName: "react-uploader",
     },
     rollupOptions: {
-      external: ['react'],
+      external: ["react"],
       output: {
         globals: {
-          react: 'React',
+          react: "React",
         },
       },
     },
   },
-})
+  plugins: [dts({ rollupTypes: true, insertTypesEntry: true })],
+});
