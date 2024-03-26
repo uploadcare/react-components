@@ -9,15 +9,17 @@ import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps.ts";
 
 LR.registerBlocks(LR);
 
-const AdapterFileUploaderInline = createComponentFactory({
+const AdapterFileUploaderMinimal = createComponentFactory({
   react: React,
-  tagName: "lr-file-uploader-inline",
+  tagName: "lr-file-uploader-minimal",
   elementClass: LR.FileUploaderMinimal,
 });
 
-const CSS_SRC_INLINE = getStyleSource("inline");
-export const FileUploaderInline: FC<TProps> = ({
+const CSS_SRC_MINIMAL = getStyleSource("minimal");
+
+export const FileUploaderMinimal: FC<TProps> = ({
   refUploadCtxProvider,
+
   ...props
 }) => {
   const CTX_NAME = useMemo(() => LR.UID.generate(), [LR.UID.generate]);
@@ -30,14 +32,15 @@ export const FileUploaderInline: FC<TProps> = ({
   return (
     <React.Fragment>
       <AdapterConfig ctx-name={CTX_NAME} {...config} />
-
       <AdapterUploadCtxProvider
         ref={refUploadCtxProvider}
         ctx-name={CTX_NAME}
         {...eventHandlers}
       />
-
-      <AdapterFileUploaderInline ctx-name={CTX_NAME} css-src={CSS_SRC_INLINE} />
+      <AdapterFileUploaderMinimal
+        ctx-name={CTX_NAME}
+        css-src={CSS_SRC_MINIMAL}
+      />
     </React.Fragment>
   );
 };

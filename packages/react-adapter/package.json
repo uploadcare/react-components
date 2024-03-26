@@ -6,12 +6,13 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/react-adapter.main.cjs.js",
-  "module": "./dist/react-adapter.main.es.js",
+  "main": "./dist/react-adapter.cjs",
+  "module": "./dist/react-adapter.js",
+  "types": "./dist/react-adapter.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/react-adapter.main.es.js",
-      "require": "./dist/react-adapter.main.cjs.js"
+      "import": "./dist/react-adapter.js",
+      "require": "./dist/react-adapter.cjs"
     }
   },
   "scripts": {
@@ -20,11 +21,7 @@
     "preview": "vite preview",
     "test": "vitest"
   },
-
   "peerDependencies": {
     "@types/react": "17 || 18"
-  },
-  "dependencies": {
-    "@uploadcare/blocks": "^0.35.2"
   }
 }

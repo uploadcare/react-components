@@ -1,13 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 import * as LR from "@uploadcare/blocks";
-
+import { createComponentFactory } from "@uploadcare/react-adapter";
 import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
-
-import { createComponentFactory } from "@uploadcare/react-adapter";
-
-import { CTX_NAME, CSS_SRC_REGULAR } from "../default";
+import { getStyleSource } from "../default";
 import type { TProps } from "../types";
+
+import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps.ts";
 
 LR.registerBlocks(LR);
 
@@ -17,60 +16,33 @@ const AdapterFileUploaderRegular = createComponentFactory({
   elementClass: LR.FileUploaderRegular,
 });
 
+const CSS_SRC_REGULAR = getStyleSource("regular");
+
 export const FileUploaderRegular: FC<TProps> = ({
-  ctxName = CTX_NAME,
-  cssSrc = CSS_SRC_REGULAR,
-
-  // Events
-  onFileAdded,
-  onFileRemoved,
-  onFileUploadStart,
-  onFileUploadProgress,
-  onFileUploadSuccess,
-  onFileUploadFailed,
-  onFileUrlChanged,
-  onModalOpen,
-  onModalClose,
-  onDoneClick,
-  onUploadClick,
-  onActivityChange,
-  onCommonUploadStart,
-  onCommonUploadProgress,
-  onCommonUploadSuccess,
-  onCommonUploadFailed,
-  onChange,
-  onGroupCreated,
-
-  // Config
-  ...config
+  refUploadCtxProvider,
+  ...props
 }) => {
+  const CTX_NAME = useMemo(() => LR.UID.generate(), [LR.UID.generate]);
+
+  const { eventHandlers, config } = useMemo(
+    () => getCalcPropertyOfProps(props),
+    [props],
+  );
+
   return (
     <React.Fragment>
-      <AdapterConfig ctx-name={ctxName} {...config} />
+      <AdapterConfig ctx-name={CTX_NAME} {...config} />
 
       <AdapterUploadCtxProvider
-        ctx-name={ctxName}
-        onFileUploadStart={onFileUploadStart}
-        onFileUploadFailed={onFileUploadFailed}
-        onFileUploadSuccess={onFileUploadSuccess}
-        onFileUploadProgress={onFileUploadProgress}
-        onFileRemoved={onFileRemoved}
-        onFileAdded={onFileAdded}
-        onUploadClick={onUploadClick}
-        onActivityChange={onActivityChange}
-        onChange={onChange}
-        onCommonUploadFailed={onCommonUploadFailed}
-        onCommonUploadProgress={onCommonUploadProgress}
-        onCommonUploadStart={onCommonUploadStart}
-        onCommonUploadSuccess={onCommonUploadSuccess}
-        onFileUrlChanged={onFileUrlChanged}
-        onModalClose={onModalClose}
-        onModalOpen={onModalOpen}
-        onDoneClick={onDoneClick}
-        onGroupCreated={onGroupCreated}
+        ref={refUploadCtxProvider}
+        ctx-name={CTX_NAME}
+        {...eventHandlers}
       />
 
-      <AdapterFileUploaderRegular ctx-name={ctxName} css-src={cssSrc} />
+      <AdapterFileUploaderRegular
+        ctx-name={CTX_NAME}
+        css-src={CSS_SRC_REGULAR}
+      />
     </React.Fragment>
   );
 };

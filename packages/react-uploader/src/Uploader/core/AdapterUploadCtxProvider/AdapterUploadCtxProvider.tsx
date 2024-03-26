@@ -1,5 +1,4 @@
 import React from "react";
-
 import { createComponentFactory } from "@uploadcare/react-adapter";
 import * as LR from "@uploadcare/blocks";
 

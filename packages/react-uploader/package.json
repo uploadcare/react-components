@@ -20,11 +20,11 @@
     "preview": "vite preview",
     "test": "vitest"
   },
-
   "peerDependencies": {
     "@types/react": "17 || 18"
   },
   "dependencies": {
-    "@uploadcare/blocks": "^0.35.2"
+    "@uploadcare/blocks": "^0.36.0",
+    "@uploadcare/react-adapter": "0.0.0"
   }
 }
