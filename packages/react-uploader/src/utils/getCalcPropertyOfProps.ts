@@ -1,4 +1,4 @@
-export const getCalcPropertyOfProps = (props: Record<string, unknown>) => {
+export const getCalcPropertyOfProps = <T extends Object>(props: T) => {
   const eventHandlers: Record<string, unknown> = {};
   const config: Record<string, unknown> = {};
 

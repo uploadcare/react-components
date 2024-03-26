@@ -25,7 +25,7 @@ export const FileUploaderRegular: FC<TProps> = ({
   const CTX_NAME = useMemo(() => LR.UID.generate(), [LR.UID.generate]);
 
   const { eventHandlers, config } = useMemo(
-    () => getCalcPropertyOfProps(props),
+    () => getCalcPropertyOfProps<TProps>(props),
     [props],
   );
 

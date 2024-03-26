@@ -5,7 +5,7 @@ import {
   UploadCtxProvider,
 } from "@uploadcare/blocks";
 
-export type TEvents = typeof EventType;
+type TEvents = typeof EventType;
 
 type TToCamelCase<S extends string> = S extends `${infer Head}_${infer Tail}`
   ? `${Lowercase<Head>}${Capitalize<TToCamelCase<Tail>>}`
@@ -30,3 +30,5 @@ type TPropsWithConfig = Partial<ConfigType>;
 export type TProps = TRefUploadCtxProvider &
   TPropsWithEvents &
   TPropsWithConfig;
+
+export { UploadCtxProvider } from "@uploadcare/blocks";
