@@ -20,6 +20,6 @@ export type TEventsSchema = {
 };
 
 export type TProps = {
-  refUploadCtxProvider: React.Ref<UploadCtxProvider>;
+  refUploadCtxProvider?: React.Ref<UploadCtxProvider>;
 } & ConfigType &
   TEventsSchema;
