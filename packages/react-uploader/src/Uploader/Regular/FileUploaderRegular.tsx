@@ -6,7 +6,7 @@ import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 import { getStyleSource } from "../default";
 import type { TProps } from "../types";
 
-import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps.ts";
+import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
 
 LR.registerBlocks(LR);
 

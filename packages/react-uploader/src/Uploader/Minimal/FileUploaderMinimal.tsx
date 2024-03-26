@@ -5,7 +5,7 @@ import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 import type { TProps } from "../types";
 import { getStyleSource } from "../default";
-import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps.ts";
+import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
 
 LR.registerBlocks(LR);
 
@@ -19,7 +19,6 @@ const CSS_SRC_MINIMAL = getStyleSource("minimal");
 
 export const FileUploaderMinimal: FC<TProps> = ({
   refUploadCtxProvider,
-
   ...props
 }) => {
   const CTX_NAME = useMemo(() => LR.UID.generate(), [LR.UID.generate]);

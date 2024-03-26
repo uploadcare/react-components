@@ -1,6 +1,6 @@
 {
   "name": "@uploadcare/react-uploader",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.4",
   "private": false,
   "type": "module",
   "files": [
@@ -25,7 +25,7 @@
     "@types/react": "17 || 18"
   },
   "dependencies": {
-    "@uploadcare/blocks": "^0.36.1-alpha.0",
+    "@uploadcare/blocks": "^0.36.1-alpha.1",
     "@uploadcare/react-adapter": "0.0.1-alpha.0"
   },
   "publishConfig": {
