@@ -1,1 +1,1 @@
-export { createComponentFactory } from "./createComponentFactory.ts";
+export { customElementToReactComponent } from "./customElementToReactComponent";

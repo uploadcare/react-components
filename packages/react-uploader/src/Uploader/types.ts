@@ -27,7 +27,13 @@ type TPropsWithEvents = Partial<TEventsSchema>;
 
 type TPropsWithConfig = Partial<ConfigType>;
 
-export type TProps = TRefUploadCtxProvider &
+type TDefaultProps = {
+  className?: string;
+  ctxName?: string;
+};
+
+export type TProps = TDefaultProps &
+  TRefUploadCtxProvider &
   TPropsWithEvents &
   TPropsWithConfig;
 

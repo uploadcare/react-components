@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from "react";
 import * as LR from "@uploadcare/blocks";
-import { createComponentFactory } from "@uploadcare/react-adapter";
+import { customElementToReactComponent } from "@uploadcare/react-adapter";
 import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 import type { TProps } from "../types";
@@ -9,18 +9,23 @@ import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
 
 LR.registerBlocks(LR);
 
-const AdapterFileUploaderInline = createComponentFactory({
+const AdapterFileUploaderInline = customElementToReactComponent({
   react: React,
-  tagName: "lr-file-uploader-inline",
-  elementClass: LR.FileUploaderMinimal,
+  tag: "lr-file-uploader-inline",
+  elClass: LR.FileUploaderMinimal,
 });
 
 const CSS_SRC_INLINE = getStyleSource("inline");
 export const FileUploaderInline: FC<TProps> = ({
+  ctxName,
+  className,
   refUploadCtxProvider,
   ...props
 }) => {
-  const CTX_NAME = useMemo(() => LR.UID.generate(), [LR.UID.generate]);
+  const CTX_NAME = useMemo(
+    () => ctxName ?? LR.UID.generate(),
+    [ctxName, LR.UID.generate],
+  );
 
   const { eventHandlers, config } = useMemo(
     () => getCalcPropertyOfProps<TProps>(props),
@@ -37,7 +42,11 @@ export const FileUploaderInline: FC<TProps> = ({
         {...eventHandlers}
       />
 
-      <AdapterFileUploaderInline ctx-name={CTX_NAME} css-src={CSS_SRC_INLINE} />
+      <AdapterFileUploaderInline
+        className={className}
+        ctx-name={CTX_NAME}
+        css-src={CSS_SRC_INLINE}
+      />
     </React.Fragment>
   );
 };

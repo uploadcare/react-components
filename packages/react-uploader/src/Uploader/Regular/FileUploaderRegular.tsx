@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from "react";
 import * as LR from "@uploadcare/blocks";
-import { createComponentFactory } from "@uploadcare/react-adapter";
+import { customElementToReactComponent } from "@uploadcare/react-adapter";
 import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 import { getStyleSource } from "../default";
@@ -10,19 +10,24 @@ import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
 
 LR.registerBlocks(LR);
 
-const AdapterFileUploaderRegular = createComponentFactory({
+const AdapterFileUploaderRegular = customElementToReactComponent({
   react: React,
-  tagName: "lr-file-uploader-regular",
-  elementClass: LR.FileUploaderRegular,
+  tag: "lr-file-uploader-regular",
+  elClass: LR.FileUploaderRegular,
 });
 
 const CSS_SRC_REGULAR = getStyleSource("regular");
 
 export const FileUploaderRegular: FC<TProps> = ({
+  ctxName,
+  className,
   refUploadCtxProvider,
   ...props
 }) => {
-  const CTX_NAME = useMemo(() => LR.UID.generate(), [LR.UID.generate]);
+  const CTX_NAME = useMemo(
+    () => ctxName ?? LR.UID.generate(),
+    [ctxName, LR.UID.generate],
+  );
 
   const { eventHandlers, config } = useMemo(
     () => getCalcPropertyOfProps<TProps>(props),
@@ -40,6 +45,7 @@ export const FileUploaderRegular: FC<TProps> = ({
       />
 
       <AdapterFileUploaderRegular
+        className={className}
         ctx-name={CTX_NAME}
         css-src={CSS_SRC_REGULAR}
       />

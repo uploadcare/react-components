@@ -1,9 +1,9 @@
 import React from "react";
-import { createComponentFactory } from "@uploadcare/react-adapter";
+import { customElementToReactComponent } from "@uploadcare/react-adapter";
 import * as LR from "@uploadcare/blocks";
 
-export const AdapterConfig = createComponentFactory({
+export const AdapterConfig = customElementToReactComponent({
   react: React,
-  tagName: "lr-config",
-  elementClass: LR.Config,
+  tag: "lr-config",
+  elClass: LR.Config,
 });
