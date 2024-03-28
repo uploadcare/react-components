@@ -1,17 +1,18 @@
 {
   "name": "@uploadcare/react-uploader",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.4",
+  "private": false,
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "./dist/react-uploader.libs.cjs.js",
-  "module": "./dist/react-uploader.libs.es.js",
+  "main": "./dist/react-uploader.cjs",
+  "module": "./dist/react-uploader.js",
+  "types": "./dist/react-uploader.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/react-uploader.libs.es.js",
-      "require": "./dist/react-uploader.libs.cjs.js"
+      "import": "./dist/react-uploader.js",
+      "require": "./dist/react-uploader.cjs"
     }
   },
   "scripts": {
@@ -24,7 +25,10 @@
     "@types/react": "17 || 18"
   },
   "dependencies": {
-    "@uploadcare/blocks": "^0.36.1-alpha.0",
-    "@uploadcare/react-adapter": "0.0.0"
+    "@uploadcare/blocks": "^0.36.1-alpha.1",
+    "@uploadcare/react-adapter": "0.0.1-alpha.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

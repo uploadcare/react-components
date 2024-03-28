@@ -5,7 +5,7 @@ import {
   UploadCtxProvider,
 } from "@uploadcare/blocks";
 
-export type TEvents = typeof EventType;
+type TEvents = typeof EventType;
 
 type TToCamelCase<S extends string> = S extends `${infer Head}_${infer Tail}`
   ? `${Lowercase<Head>}${Capitalize<TToCamelCase<Tail>>}`
@@ -19,7 +19,16 @@ export type TEventsSchema = {
   [K in keyof TEvents as TPrefixOnAndCamelCase<K>]: TEvents[K];
 };
 
-export type TProps = {
-  refUploadCtxProvider: React.Ref<UploadCtxProvider>;
-} & ConfigType &
-  TEventsSchema;
+type TRefUploadCtxProvider = {
+  refUploadCtxProvider?: React.Ref<InstanceType<UploadCtxProvider>>;
+};
+
+type TPropsWithEvents = Partial<TEventsSchema>;
+
+type TPropsWithConfig = Partial<ConfigType>;
+
+export type TProps = TRefUploadCtxProvider &
+  TPropsWithEvents &
+  TPropsWithConfig;
+
+export { UploadCtxProvider } from "@uploadcare/blocks";

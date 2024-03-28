@@ -1,7 +1,7 @@
 {
   "name": "@uploadcare/react-adapter",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1-alpha.0",
+  "private": false,
   "type": "module",
   "files": [
     "dist"
@@ -23,5 +23,8 @@
   },
   "peerDependencies": {
     "@types/react": "17 || 18"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
