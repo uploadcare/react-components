@@ -1,0 +1,1 @@
+export { customElementToReactComponent } from "./customElementToReactComponent";
