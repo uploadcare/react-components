@@ -1,13 +1,11 @@
 import React from "react";
 import {
   type ConfigType,
-  EventType,
   UploadCtxProvider,
+  EventMap,
 } from "@uploadcare/blocks";
 
-type TEvents = typeof EventType;
-
-type TToCamelCase<S extends string> = S extends `${infer Head}_${infer Tail}`
+type TToCamelCase<S extends string> = S extends `${infer Head}-${infer Tail}`
   ? `${Lowercase<Head>}${Capitalize<TToCamelCase<Tail>>}`
   : Lowercase<S>;
 
@@ -16,7 +14,7 @@ type TExtraPrefixOn<S extends string> = `on${Capitalize<S>}`;
 type TPrefixOnAndCamelCase<S extends string> = TExtraPrefixOn<TToCamelCase<S>>;
 
 export type TEventsSchema = {
-  [K in keyof TEvents as TPrefixOnAndCamelCase<K>]: TEvents[K];
+  [K in keyof EventMap as TPrefixOnAndCamelCase<K>]: EventMap[K];
 };
 
 type TRefUploadCtxProvider = {
