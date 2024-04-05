@@ -4,9 +4,10 @@ import { reservedReactProperties } from "./constants/reservedReactProperties";
 import { mapEvents } from "./utils/mapperEvents";
 import { registerPropAndEvent } from "./utils/registerPropAndEvent";
 
-export type EventsSchema = Record<string, string>;
-
-export type Options<I extends HTMLElement, E extends EventsSchema = {}> = {
+export type Options<
+  I extends HTMLElement,
+  E extends Record<string, string> = {},
+> = {
   react: typeof React;
   tag: string;
   elClass: { new (): I };
@@ -34,7 +35,7 @@ const segregateProps = <T, E, I>(props: T, eventProps: E, elClass: I) => {
 
 export const customElementToReactComponent = <
   I extends HTMLElement,
-  E extends EventsSchema = {},
+  E extends Record<string, string> = {},
 >({
   react: React, // https://react.dev/warnings/invalid-hook-call-warning
   tag,
@@ -44,7 +45,7 @@ export const customElementToReactComponent = <
   const events = mapEvents(schemaEvents);
   const eventKeyOfProps = new Set(Object.keys(events ?? {}));
 
-  const ReactComponent = React.forwardRef(
+  const ReactComponent = React.forwardRef<I, E>(
     (props: Record<string, unknown>, ref) => {
       const prevElemPropsRef = React.useRef(new Map());
       const nodeRef = React.useRef<I | null>(null);
@@ -85,7 +86,7 @@ export const customElementToReactComponent = <
           });
         }
         prevElemPropsRef.current = newElemProps;
-      }, []);
+      });
 
       // __tag is a private property from symbiotejs
       // @ts-ignore
