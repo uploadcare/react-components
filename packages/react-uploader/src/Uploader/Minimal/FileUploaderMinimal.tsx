@@ -36,13 +36,13 @@ export const FileUploaderMinimal: FC<TProps> = ({
   return (
     <React.Fragment>
       <AdapterConfig ctx-name={CTX_NAME} {...config} />
+      {/* @ts-ignore */}
       <AdapterUploadCtxProvider
         ref={refUploadCtxProvider}
         ctx-name={CTX_NAME}
         {...eventHandlers}
       />
       <AdapterFileUploaderMinimal
-        className={className}
         ctx-name={CTX_NAME}
         css-src={CSS_SRC_MINIMAL}
       />
