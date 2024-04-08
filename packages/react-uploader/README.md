@@ -65,26 +65,26 @@ import { FileUploaderRegular } from "@uploadcare/react-uploader";
 
 ### Table of events
 
-| Events blocks          | Events React Uploader  | Type payload |
-|------------------------|------------------------|--------------|
-| file-added             | onFileAdded            |              |
-| file-removed           | onFileRemoved          |              |
-| file-upload-start      | onFileUploadStart      |              |
-| file-upload-progress   | onFileUploadProgress   |              |
-| file-upload-success    | onFileUploadSuccess    |              |
-| file-upload-failed     | onFileUploadFailed     |              |
-| file-url-changed       | onFileUrlChanged       |              |
-| modal-open             | onModalOpen            |              |
-| modal-close            | onModalClose           |              |
-| done-click             | onDoneClick            |              |
-| upload-click           | onUploadClick          |              |
-| activity-change        | onActivityChange       |              |
-| common-upload-start    | onCommonUploadStart    |              |
-| common-upload-progress | onCommonUploadProgress |              |
-| common-upload-success  | onCommonUploadSuccess  |              |
-| common-upload-failed   | onCommonUploadFailed   |              |
-| change                 | onChange               |              |
-| group-created          | onGroupCreated         |              |
+| Events blocks          | Events React Uploader  |
+|------------------------|------------------------|
+| file-added             | onFileAdded            |
+| file-removed           | onFileRemoved          |
+| file-upload-start      | onFileUploadStart      |
+| file-upload-progress   | onFileUploadProgress   |
+| file-upload-success    | onFileUploadSuccess    |
+| file-upload-failed     | onFileUploadFailed     |
+| file-url-changed       | onFileUrlChanged       |
+| modal-open             | onModalOpen            |
+| modal-close            | onModalClose           |
+| done-click             | onDoneClick            |
+| upload-click           | onUploadClick          |
+| activity-change        | onActivityChange       |
+| common-upload-start    | onCommonUploadStart    |
+| common-upload-progress | onCommonUploadProgress |
+| common-upload-success  | onCommonUploadSuccess  |
+| common-upload-failed   | onCommonUploadFailed   |
+| change                 | onChange               |
+| group-created          | onGroupCreated         |
 
 ## Security issues
 
