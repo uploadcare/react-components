@@ -9,7 +9,11 @@
 Uploadcare React Uploader. Allows you to use Uploader in React applications according to React canons.
 
 
-### (@TODO: Add a link to the documentation)
+[![Build Status][badge-build]][build-url]
+[![NPM version][npm-img]][npm-url]
+[![GitHub release][badge-release-img]][badge-release-url]
+[![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
+
 
 ## Install
 
@@ -105,7 +109,12 @@ request at [hello@uploadcare.com][uc-email-hello].
 [uc-email-hello]: mailto:hello@uploadcare.com
 
 [badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
-
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
+[badge-release-img]: https://img.shields.io/github/release/uploadcare/react-components.svg
+[badge-release-url]: https://github.com/uploadcare/react-components/releases
+[npm-img]: http://img.shields.io/npm/v/@uploadcare/react-uploader.svg
+[npm-url]: https://www.npmjs.com/package/@uploadcare/react-uploader
+[badge-build]: https://github.com/uploadcare/react-components/actions/workflows/checks.yml/badge.svg
+[build-url]: https://github.com/uploadcare/react-components/actions/workflows/checks.yml
 
 [uc-docs-events]: https://uploadcare.com/docs/file-uploader/events/
