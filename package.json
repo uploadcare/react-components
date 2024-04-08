@@ -4,7 +4,8 @@
   "private": false,
   "type": "module",
   "scripts": {
-    "build": "npm run build --workspaces"
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces"
   },
   "author": "",
   "license": "ISC",
