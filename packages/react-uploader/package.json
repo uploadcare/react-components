@@ -28,7 +28,55 @@
     "@uploadcare/blocks": "^0.36.1-alpha.1",
     "@uploadcare/react-adapter": "0.0.1-alpha.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uploadcare/react-components.git"
+  },
+  "author": "Uploadcare",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/uploadcare/react-components/issues"
+  },
+  "homepage": "https://github.com/uploadcare/react-components#readme",
+  "keywords": [
+    "uploadcare",
+    "react",
+    "component",
+    "widget",
+    "uploader",
+    "file-uploader",
+    "image-uploader",
+    "upload-component",
+    "upload file",
+    "multipart-upload",
+    "image-picker",
+    "react-image-picker",
+    "react-upload",
+    "react-upload-component",
+    "react-file-upload-component",
+    "filepicker",
+    "file-picker",
+    "file-upload",
+    "file uploading",
+    "file",
+    "upload",
+    "input",
+    "dropzone",
+    "multi",
+    "multipart",
+    "ajax",
+    "xhr",
+    "dialog",
+    "store",
+    "files",
+    "image",
+    "images",
+    "use file upload",
+    "react file upload",
+    "react hook file upload",
+    "front-end"
+  ]
 }
