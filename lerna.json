@@ -6,7 +6,7 @@
       "createRelease": "github",
       "conventionalCommits": true,
       "allowBranch": [
-        "master"
+        "main"
       ],
       "message": "chore(release): publish"
     }
