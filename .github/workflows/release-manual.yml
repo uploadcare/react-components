@@ -1,13 +1,14 @@
-name: "Release and Publish"
+name: "Release and Publish Manual"
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
 
 jobs:
   build:
-    name: Build
+    name: "Build"
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
@@ -41,3 +42,4 @@ jobs:
           fi
           
           npx lerna publish from-git --yes
+
