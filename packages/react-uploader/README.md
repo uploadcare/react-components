@@ -6,9 +6,14 @@
       alt="">
 </a>
 
-Uploadcare React Uploader.
+Uploadcare React Uploader. Allows you to use Uploader in React applications according to React canons.
 
-### (@TODO: Add a link to the documentation)
+
+[![Build Status][badge-build]][build-url]
+[![NPM version][npm-img]][npm-url]
+[![GitHub release][badge-release-img]][badge-release-url]
+[![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
+
 
 ## Install
 
@@ -19,14 +24,71 @@ npm i @uploadcare/react-uploader
 ## Usage
 
 ```jsx
-import { FileUploaderRegular, FileUploaderMinimal, FileUploaderInline } from "@uploadcare/react-uploader";
+import { FileUploaderRegular } from "@uploadcare/react-uploader";
 
 <FileUploaderRegular pubkey="YOUR_PUBLIC_KEY"/>;
-
-<FileUploaderMinimal pubkey="YOUR_PUBLIC_KEY"/>;
-
-<FileUploaderInline pubkey="YOUR_PUBLIC_KEY"/>;
 ```
+
+## File Uploader API
+
+It is possible to get ref on UploadCtxProvider via `ref`. In this way it is possible to additional uploader management
+methods.
+
+```jsx
+import React, { useRef } from "react";
+import {
+    FileUploaderRegular,
+    UploadCtxProvider
+} from "@uploadcare/react-uploader";
+
+const uploaderRef = useRef<InstanceType<UploadCtxProvider> | null>(null);
+
+<FileUploaderRegular refUploadCtxProvider={uploaderRef} pubkey="YOUR_PUBLIC_KEY"/>;
+```
+
+## Events
+
+Events in React Uploader are the same as in blocks, see the [documentation][uc-docs-events].
+The principle of converting events from blocks to React Uploader:
+
+1. All events in React Uploader start with `on`.
+2. All events in React Uploader in `camelCase`.
+
+Example:
+
+```jsx
+import { FileUploaderRegular } from "@uploadcare/react-uploader";
+
+<FileUploaderRegular
+    pubkey="YOUR_PUBLIC_KEY"
+    onModalOpen={() => {
+        console.log('modal-open')
+    }}
+/>
+```
+
+### Table of events
+
+| Events blocks          | Events React Uploader  |
+|------------------------|------------------------|
+| file-added             | onFileAdded            |
+| file-removed           | onFileRemoved          |
+| file-upload-start      | onFileUploadStart      |
+| file-upload-progress   | onFileUploadProgress   |
+| file-upload-success    | onFileUploadSuccess    |
+| file-upload-failed     | onFileUploadFailed     |
+| file-url-changed       | onFileUrlChanged       |
+| modal-open             | onModalOpen            |
+| modal-close            | onModalClose           |
+| done-click             | onDoneClick            |
+| upload-click           | onUploadClick          |
+| activity-change        | onActivityChange       |
+| common-upload-start    | onCommonUploadStart    |
+| common-upload-progress | onCommonUploadProgress |
+| common-upload-success  | onCommonUploadSuccess  |
+| common-upload-failed   | onCommonUploadFailed   |
+| change                 | onChange               |
+| group-created          | onGroupCreated         |
 
 ## Security issues
 
@@ -47,7 +109,12 @@ request at [hello@uploadcare.com][uc-email-hello].
 [uc-email-hello]: mailto:hello@uploadcare.com
 
 [badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
-
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
+[badge-release-img]: https://img.shields.io/github/release/uploadcare/react-components.svg
+[badge-release-url]: https://github.com/uploadcare/react-components/releases
+[npm-img]: http://img.shields.io/npm/v/@uploadcare/react-uploader.svg
+[npm-url]: https://www.npmjs.com/package/@uploadcare/react-uploader
+[badge-build]: https://github.com/uploadcare/react-components/actions/workflows/checks.yml/badge.svg
+[build-url]: https://github.com/uploadcare/react-components/actions/workflows/checks.yml
 
-[uc-docs-metadata]: https://uploadcare.com/api-refs/rest-api/v0.7.0/#tag/File-Metadata
+[uc-docs-events]: https://uploadcare.com/docs/file-uploader/events/

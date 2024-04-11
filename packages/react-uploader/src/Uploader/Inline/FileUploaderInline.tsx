@@ -35,18 +35,14 @@ export const FileUploaderInline: FC<TProps> = ({
   return (
     <React.Fragment>
       <AdapterConfig ctx-name={CTX_NAME} {...config} />
-
+      {/* @ts-ignore */}
       <AdapterUploadCtxProvider
         ref={refUploadCtxProvider}
         ctx-name={CTX_NAME}
         {...eventHandlers}
       />
 
-      <AdapterFileUploaderInline
-        className={className}
-        ctx-name={CTX_NAME}
-        css-src={CSS_SRC_INLINE}
-      />
+      <AdapterFileUploaderInline ctx-name={CTX_NAME} css-src={CSS_SRC_INLINE} />
     </React.Fragment>
   );
 };
