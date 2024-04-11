@@ -1,10 +1,6 @@
 name: "Release and Publish Manual"
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   build:
@@ -28,18 +24,19 @@ jobs:
       - name: "Run build"
         run: lerna run build
 
-      - name: "Version and publish" # Interesting step
+      - name: "Version and publish 🚀"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           
-          if [ ${{ github.base_ref }} = development ]; then
-            npx lerna version --conventional-commits --conventional-prerelease --preid beta --yes
+          if [ ${{ github.base_ref }} = develop ]; then
+            npx lerna version --conventional-commits --conventional-prerelease --preid alpha --yes
           else
             npx lerna version --conventional-commits --conventional-graduate --yes
           fi
           
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
           npx lerna publish from-git --yes
-
