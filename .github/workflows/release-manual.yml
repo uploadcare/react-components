@@ -1,0 +1,42 @@
+name: "Release and Publish Manual"
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: "Use Node.js 16"
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+
+      - name: "Install dependencies"
+        working-directory: ./
+        run: npm ci
+
+      - name: "Run build"
+        run: lerna run build
+
+      - name: "Version and publish 🚀"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          
+          if [ ${{ github.base_ref }} = develop ]; then
+            npx lerna version --conventional-commits --conventional-prerelease --preid alpha --yes
+          else
+            npx lerna version --conventional-commits --conventional-graduate --yes
+          fi
+          
+          npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+          npx lerna publish from-git --yes
