@@ -23,6 +23,7 @@
     "esModuleInterop": true,
     "jsx": "react"
   },
+
   "include": [
     "src"
   ]
