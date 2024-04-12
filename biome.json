@@ -8,7 +8,7 @@
     "rules": {
       "recommended": true
     },
-    "ignore": ["./.nx", "node_modules/"]
+    "ignore": ["./.nx", "node_modules/", "dist/"]
   },
   "formatter": {
     "indentStyle": "space",
