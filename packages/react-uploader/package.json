@@ -3,9 +3,7 @@
   "version": "0.0.1-alpha.5",
   "private": false,
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/react-uploader.cjs",
   "module": "./dist/react-uploader.js",
   "types": "./dist/react-uploader.d.ts",

@@ -3,9 +3,7 @@
   "version": "0.0.1-alpha.0",
   "private": false,
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/react-adapter.cjs",
   "module": "./dist/react-adapter.js",
   "types": "./dist/react-adapter.d.ts",
