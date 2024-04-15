@@ -1,1 +1,1 @@
-export { AdapterUploadCtxProvider } from './AdapterUploadCtxProvider'
+export { AdapterUploadCtxProvider } from "./AdapterUploadCtxProvider";
