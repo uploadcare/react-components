@@ -1,1 +1,1 @@
-export { AdapterConfig } from './AdapterConfig'
+export { AdapterConfig } from "./AdapterConfig";

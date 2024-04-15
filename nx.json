@@ -2,24 +2,18 @@
   "targetDefaults": {
     "dev": {
       "cache": true,
-      "dependsOn": [
-        "^dev"
-      ]
+      "dependsOn": ["^dev"]
     },
     "build": {
       "cache": true,
-      "dependsOn": [
-        "^build"
-      ]
+      "dependsOn": ["^build"]
     },
     "preview": {
       "dependsOn": []
     },
     "test": {
       "cache": true,
-      "dependsOn": [
-        "^test"
-      ]
+      "dependsOn": ["^test"]
     }
   }
 }
