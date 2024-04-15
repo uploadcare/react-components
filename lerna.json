@@ -1,9 +1,11 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "version": "independent",
+  "packages": [
+    "packages/*"
+  ],
   "command": {
     "version": {
-      "createRelease": "github",
       "conventionalCommits": true,
       "allowBranch": ["main", "develop"],
       "message": "chore(release): publish"
