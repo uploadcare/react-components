@@ -1,9 +1,11 @@
 {
   "name": "@uploadcare/react-uploader",
-  "version": "0.1.0",
+  "version": "0.2.0-alpha.0",
   "private": false,
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/react-uploader.cjs",
   "module": "./dist/react-uploader.js",
   "types": "./dist/react-uploader.d.ts",

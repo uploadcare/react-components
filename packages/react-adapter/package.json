@@ -1,9 +1,11 @@
 {
   "name": "@uploadcare/react-adapter",
-  "version": "0.1.0",
+  "version": "0.2.0-alpha.0",
   "private": false,
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "main": "./dist/react-adapter.cjs",
   "module": "./dist/react-adapter.js",
   "types": "./dist/react-adapter.d.ts",
