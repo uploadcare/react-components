@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from "react";
+import React, { type FC, useMemo } from "react";
 import * as LR from "@uploadcare/blocks";
 import { customElementToReactComponent } from "@uploadcare/react-adapter";
 import { AdapterConfig } from "../core/AdapterConfig";
@@ -23,10 +23,7 @@ export const FileUploaderMinimal: FC<TProps> = ({
   refUploadCtxProvider,
   ...props
 }) => {
-  const CTX_NAME = useMemo(
-    () => ctxName ?? LR.UID.generate(),
-    [ctxName, LR.UID.generate],
-  );
+  const CTX_NAME = useMemo(() => ctxName ?? LR.UID.generate(), [ctxName]);
 
   const { eventHandlers, config } = useMemo(
     () => getCalcPropertyOfProps<TProps>(props),
@@ -34,7 +31,7 @@ export const FileUploaderMinimal: FC<TProps> = ({
   );
 
   return (
-    <React.Fragment>
+    <div className={className}>
       <AdapterConfig ctx-name={CTX_NAME} {...config} />
       {/* @ts-ignore */}
       <AdapterUploadCtxProvider
@@ -46,6 +43,6 @@ export const FileUploaderMinimal: FC<TProps> = ({
         ctx-name={CTX_NAME}
         css-src={CSS_SRC_MINIMAL}
       />
-    </React.Fragment>
+    </div>
   );
 };
