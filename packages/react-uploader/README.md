@@ -8,42 +8,103 @@
 
 Uploadcare React Uploader. Allows you to use Uploader in React applications according to React canons.
 
-
 [![Build Status][badge-build]][build-url]
 [![NPM version][npm-img]][npm-url]
 [![GitHub release][badge-release-img]][badge-release-url]
 [![Uploadcare stack on StackShare][badge-stack-img]][badge-stack-url]
 
+* [Summary about project](#summary-about-project)
+* [Quick Features](#quick-features)
+* [Install](#install)
+* [Common](#common)
+    * [Usage](#usage)
+        * [Regular](#regular)
+        * [Inline](#inline)
+        * [Minimal](#minimal)
+    * [Props API](#props-api)
+    * [Styles](#styles)
+    * [File Uploader API](#file-uploader-api)
+    * [Events](#events)
+* [Security issues](#security-issues)
+* [Feedback](#feedback)
 
 ## Install
 
-```
+```bash
 npm i @uploadcare/react-uploader
 ```
 
 ## Usage
 
+React Uploader has three options for use in projects.
+In common component: `FileUploader[Regular | Minimal | Inline]`.
+React Uploader has to include inside common 2 atoms component: `lr-config`, `lr-upload-ctx-provider`.
+
+### Regular
+
 ```jsx
-import { FileUploaderRegular } from "@uploadcare/react-uploader";
+import {FileUploaderRegular} from "@uploadcare/react-uploader";
 
 <FileUploaderRegular pubkey="YOUR_PUBLIC_KEY"/>;
 ```
 
-## File Uploader API
-
-It is possible to get ref on UploadCtxProvider via `ref`. In this way it is possible to additional uploader management
-methods.
+### Inline
 
 ```jsx
-import React, { useRef } from "react";
+import {FileUploaderInline} from "@uploadcare/react-uploader";
+
+<FileUploaderInline pubkey="YOUR_PUBLIC_KEY"/>;
+```
+
+### Minimal
+
+```jsx
+import {FileUploaderMinimal} from "@uploadcare/react-uploader";
+
+<FileUploaderMinimal pubkey="YOUR_PUBLIC_KEY"/>;
+```
+
+## Props API
+
+An easy way to connect React-Uploader to your project and utilize the available API props.
+We provide a full set of props that are used in blocks. For review we suggest you to look at
+the [documentation](uc-docs-file-uploader-options).
+
+## Styles
+
+You can customize react uploader yourself.
+You have access to the className props which are added to the `FileUploader[Regular | Minimal | Inline]` wrapper.
+
+```jsx
+import {FileUploaderRegular} from "@uploadcare/react-uploader";
+
+<FileUploaderRegular className="fileUploaderWrapper" pubkey="YOUR_PUBLIC_KEY"/>;
+```
+
+```css
+.fileUploaderWrapper lr-file-uploader-regular {
+}
+```
+
+## File Uploader API
+
+For convenience, we provide the ability to access the File Uploader API using `refUploadCtxProvider`.
+You can see what methods are available in `refUploadCtxProvider` in the [documentation][uc-docs-file-uploader-api].
+It is important to note that we now pass all InstanceType from UploadCtxProvider.
+
+```jsx
+import React, {useRef, useEffect} from "react";
 import {
     FileUploaderRegular,
     UploadCtxProvider
 } from "@uploadcare/react-uploader";
 
-const uploaderRef = useRef<InstanceType<UploadCtxProvider> | null>(null);
+const Example = () => {
+    const uploaderRef = useRef < InstanceType < UploadCtxProvider > | null > (null);
 
-<FileUploaderRegular refUploadCtxProvider={uploaderRef} pubkey="YOUR_PUBLIC_KEY"/>;
+
+    <FileUploaderRegular refUploadCtxProvider={uploaderRef} pubkey="YOUR_PUBLIC_KEY"/>;
+}
 ```
 
 ## Events
@@ -57,7 +118,7 @@ The principle of converting events from blocks to React Uploader:
 Example:
 
 ```jsx
-import { FileUploaderRegular } from "@uploadcare/react-uploader";
+import {FileUploaderRegular} from "@uploadcare/react-uploader";
 
 <FileUploaderRegular
     pubkey="YOUR_PUBLIC_KEY"
@@ -109,12 +170,23 @@ request at [hello@uploadcare.com][uc-email-hello].
 [uc-email-hello]: mailto:hello@uploadcare.com
 
 [badge-stack-img]: https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat
+
 [badge-stack-url]: https://stackshare.io/uploadcare/stacks/
+
 [badge-release-img]: https://img.shields.io/github/release/uploadcare/react-components.svg
+
 [badge-release-url]: https://github.com/uploadcare/react-components/releases
+
 [npm-img]: http://img.shields.io/npm/v/@uploadcare/react-uploader.svg
+
 [npm-url]: https://www.npmjs.com/package/@uploadcare/react-uploader
+
 [badge-build]: https://github.com/uploadcare/react-components/actions/workflows/checks.yml/badge.svg
+
 [build-url]: https://github.com/uploadcare/react-components/actions/workflows/checks.yml
 
 [uc-docs-events]: https://uploadcare.com/docs/file-uploader/events/
+
+[uc-docs-file-uploader-api]: https://uploadcare.com/docs/file-uploader/api
+
+[uc-docs-file-uploader-options]: https://uploadcare.com/docs/file-uploader/options/
