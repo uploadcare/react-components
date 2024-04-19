@@ -52,9 +52,8 @@ npm i @uploadcare/react-uploader
 
 ## Usage
 
-The Uploadcare React Uploader offers three main components for integration: `FileUploader[Regular | Inline | Minimal]`.
-Each component
-serves specific use cases and can be easily implemented into your project.
+The Uploadcare React Uploader offers three main components for integration.
+Each component serves specific use cases and can be easily implemented into your project.
 
 ### Regular
 

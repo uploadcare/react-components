@@ -7,6 +7,7 @@ import { getStyleSource } from "../default";
 import type { TProps } from "../types";
 
 import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
+import { getUserAgentIntegration } from "../../utils/getUserAgentIntegration";
 
 LR.registerBlocks(LR);
 
@@ -33,7 +34,8 @@ export const FileUploaderRegular: FC<TProps> = ({
 
   return (
     <div className={className}>
-      <AdapterConfig ctx-name={CTX_NAME} {...config} />
+      {/* @ts-ignore */}
+      <AdapterConfig userAgentIntegration={getUserAgentIntegration(config.pubkey)} ctx-name={CTX_NAME} {...config}/>
       {/* @ts-ignore */}
       <AdapterUploadCtxProvider
         ref={refUploadCtxProvider}
