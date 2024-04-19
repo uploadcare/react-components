@@ -6,7 +6,9 @@
       alt="">
 </a>
 
-Uploadcare React Uploader. Allows you to use Uploader in React applications according to React canons.
+Welcome to the Uploadcare React Uploader documentation!
+This library allows you to seamlessly integrate Uploadcare file uploader into your React applications while adhering to
+React principles.
 
 [![Build Status][badge-build]][build-url]
 [![NPM version][npm-img]][npm-url]
@@ -28,6 +30,20 @@ Uploadcare React Uploader. Allows you to use Uploader in React applications acco
 * [Security issues](#security-issues)
 * [Feedback](#feedback)
 
+## Summary about project
+
+This documentation provides guidance on how to use the Uploadcare React Uploader in your projects, along with details
+about its features, installation process, usage examples, customization options, event handling, and security
+considerations.
+
+## Quick Features
+
+- Seamless integration with React applications
+- Three different upload options: Regular, Inline, and Minimal
+- Customizable styles
+- Access to File Uploader API
+- Comprehensive event handling
+
 ## Install
 
 ```bash
@@ -36,9 +52,9 @@ npm i @uploadcare/react-uploader
 
 ## Usage
 
-React Uploader has three options for use in projects.
-In common component: `FileUploader[Regular | Minimal | Inline]`.
-React Uploader has to include inside common 2 atoms component: `lr-config`, `lr-upload-ctx-provider`.
+The Uploadcare React Uploader offers three main components for integration: `FileUploader[Regular | Inline | Minimal]`.
+Each component
+serves specific use cases and can be easily implemented into your project.
 
 ### Regular
 
@@ -72,8 +88,8 @@ the [documentation](uc-docs-file-uploader-options).
 
 ## Styles
 
-You can customize react uploader yourself.
-You have access to the className props which are added to the `FileUploader[Regular | Minimal | Inline]` wrapper.
+You can customize the appearance of the React uploader using the className prop, which allows you to add custom CSS
+classes to the uploader `FileUploader[Regular | Minimal | Inline]` wrapper.
 
 ```jsx
 import {FileUploaderRegular} from "@uploadcare/react-uploader";
