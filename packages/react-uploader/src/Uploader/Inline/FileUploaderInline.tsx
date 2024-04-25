@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from "react";
+import React, { type FC, useMemo } from "react";
 import * as LR from "@uploadcare/blocks";
 import { customElementToReactComponent } from "@uploadcare/react-adapter";
 import { AdapterConfig } from "../core/AdapterConfig";
@@ -6,6 +6,7 @@ import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 import type { TProps } from "../types";
 import { getStyleSource } from "../default";
 import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
+import { getUserAgentIntegration } from "../../utils/getUserAgentIntegration";
 
 LR.registerBlocks(LR);
 
@@ -22,10 +23,7 @@ export const FileUploaderInline: FC<TProps> = ({
   refUploadCtxProvider,
   ...props
 }) => {
-  const CTX_NAME = useMemo(
-    () => ctxName ?? LR.UID.generate(),
-    [ctxName, LR.UID.generate],
-  );
+  const CTX_NAME = useMemo(() => ctxName ?? LR.UID.generate(), [ctxName]);
 
   const { eventHandlers, config } = useMemo(
     () => getCalcPropertyOfProps<TProps>(props),
@@ -33,8 +31,9 @@ export const FileUploaderInline: FC<TProps> = ({
   );
 
   return (
-    <React.Fragment>
-      <AdapterConfig ctx-name={CTX_NAME} {...config} />
+    <div className={className}>
+      {/* @ts-ignore */}
+      <AdapterConfig userAgentIntegration={getUserAgentIntegration(config.pubkey)} ctx-name={CTX_NAME} {...config} />
       {/* @ts-ignore */}
       <AdapterUploadCtxProvider
         ref={refUploadCtxProvider}
@@ -43,6 +42,6 @@ export const FileUploaderInline: FC<TProps> = ({
       />
 
       <AdapterFileUploaderInline ctx-name={CTX_NAME} css-src={CSS_SRC_INLINE} />
-    </React.Fragment>
+    </div>
   );
 };
