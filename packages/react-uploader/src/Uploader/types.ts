@@ -1,6 +1,6 @@
-import React from "react";
-import {
-  type ConfigType,
+import type { Ref } from "react";
+import type {
+  ConfigType,
   UploadCtxProvider,
   EventMap,
 } from "@uploadcare/blocks";
@@ -18,7 +18,7 @@ export type TEventsSchema = {
 };
 
 type TRefUploadCtxProvider = {
-  refUploadCtxProvider?: React.Ref<InstanceType<UploadCtxProvider>>;
+  apiRef?: Ref<InstanceType<UploadCtxProvider>>;
 };
 
 type TPropsWithEvents = Partial<TEventsSchema>;
