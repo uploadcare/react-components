@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.2.0...@uploadcare/react-uploader@0.3.0) (2024-04-29)
+
+### Bug Fixes
+
+- renamed refUploadCtxProvider to apiRef ([4440e68](https://github.com/uploadcare/react-components/commit/4440e6864eb6f48e46fa2c7f21ffb5d0d986e4ae))
+
+### Features
+
+- updated getUserAgentIntegration ([71de0ff](https://github.com/uploadcare/react-components/commit/71de0ff73fd3216ec0a76cbfacede5f5d9489a2b))
+
 # 0.2.0 (2024-04-25)
 
 ### Features
