@@ -20,7 +20,7 @@ const CSS_SRC_INLINE = getStyleSource("inline");
 export const FileUploaderInline: FC<TProps> = ({
   ctxName,
   className,
-  refUploadCtxProvider,
+  apiRef,
   ...props
 }) => {
   const CTX_NAME = useMemo(() => ctxName ?? LR.UID.generate(), [ctxName]);
@@ -36,7 +36,7 @@ export const FileUploaderInline: FC<TProps> = ({
       <AdapterConfig userAgentIntegration={getUserAgentIntegration()} ctx-name={CTX_NAME} {...config} />
       {/* @ts-ignore */}
       <AdapterUploadCtxProvider
-        ref={refUploadCtxProvider}
+        ref={apiRef}
         ctx-name={CTX_NAME}
         {...eventHandlers}
       />

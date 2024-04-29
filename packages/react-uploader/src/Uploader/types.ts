@@ -18,7 +18,7 @@ export type TEventsSchema = {
 };
 
 type TRefUploadCtxProvider = {
-  refUploadCtxProvider?: Ref<InstanceType<UploadCtxProvider>>;
+  apiRef?: Ref<InstanceType<UploadCtxProvider>>;
 };
 
 type TPropsWithEvents = Partial<TEventsSchema>;

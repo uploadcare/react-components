@@ -103,8 +103,8 @@ import {FileUploaderRegular} from "@uploadcare/react-uploader";
 
 ## File Uploader API
 
-For convenience, we provide the ability to access the File Uploader API using `refUploadCtxProvider`.
-You can see what methods are available in `refUploadCtxProvider` in the [documentation][uc-docs-file-uploader-api].
+For convenience, we provide the ability to access the File Uploader API using `apiRef`.
+You can see what methods are available in `apiRef` in the [documentation][uc-docs-file-uploader-api].
 It is important to note that we now pass all InstanceType from UploadCtxProvider.
 
 ```jsx
@@ -118,7 +118,7 @@ const Example = () => {
     const uploaderRef = useRef < InstanceType < UploadCtxProvider > | null > (null);
 
 
-    <FileUploaderRegular refUploadCtxProvider={uploaderRef} pubkey="YOUR_PUBLIC_KEY"/>;
+    <FileUploaderRegular apiRef={uploaderRef} pubkey="YOUR_PUBLIC_KEY"/>;
 }
 ```
 
