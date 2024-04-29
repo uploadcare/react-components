@@ -1,5 +1,7 @@
-import { version, name } from "../../package.json";
+import { version } from "../../package.json";
 
-export const getUserAgentIntegration = (pubkey: string) => {
-  return `${name}/${version}/${pubkey} (JavaScript; React;)`;
+const NAME_EXTENTION = "React-Uploader";
+
+export const getUserAgentIntegration = () => {
+  return `${NAME_EXTENTION}/${version}`;
 };
