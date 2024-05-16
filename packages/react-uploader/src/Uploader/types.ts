@@ -27,6 +27,7 @@ type TPropsWithConfig = Partial<ConfigType>;
 
 type TDefaultProps = {
   className?: string;
+  classNameUploader?: string;
   ctxName?: string;
 };
 

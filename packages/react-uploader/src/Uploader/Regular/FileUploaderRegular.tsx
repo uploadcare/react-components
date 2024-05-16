@@ -19,6 +19,7 @@ const AdapterFileUploaderRegular = customElementToReactComponent({
 export const FileUploaderRegular: FC<TProps> = ({
   ctxName,
   className,
+  classNameUploader,
   apiRef,
   ...props
 }) => {
@@ -39,7 +40,8 @@ export const FileUploaderRegular: FC<TProps> = ({
         ctx-name={CTX_NAME}
         {...eventHandlers}
       />
-      <AdapterFileUploaderRegular ctx-name={CTX_NAME} />
+      {/* @ts-ignore */}
+      <AdapterFileUploaderRegular class={classNameUploader} ctx-name={CTX_NAME} />
     </div>
   );
 };

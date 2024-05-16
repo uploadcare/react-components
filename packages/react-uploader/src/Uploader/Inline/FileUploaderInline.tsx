@@ -19,6 +19,7 @@ const AdapterFileUploaderInline = customElementToReactComponent({
 export const FileUploaderInline: FC<TProps> = ({
   ctxName,
   className,
+  classNameUploader,
   apiRef,
   ...props
 }) => {
@@ -40,7 +41,8 @@ export const FileUploaderInline: FC<TProps> = ({
         {...eventHandlers}
       />
 
-      <AdapterFileUploaderInline ctx-name={CTX_NAME} />
+      {/* @ts-ignore */}
+      <AdapterFileUploaderInline class={classNameUploader} ctx-name={CTX_NAME} />
     </div>
   );
 };

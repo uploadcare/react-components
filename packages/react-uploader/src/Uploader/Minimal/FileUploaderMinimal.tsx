@@ -20,6 +20,7 @@ const AdapterFileUploaderMinimal = customElementToReactComponent({
 export const FileUploaderMinimal: FC<TProps> = ({
   ctxName,
   className,
+  classNameUploader,
   apiRef,
   ...props
 }) => {
@@ -40,9 +41,8 @@ export const FileUploaderMinimal: FC<TProps> = ({
         ctx-name={CTX_NAME}
         {...eventHandlers}
       />
-      <AdapterFileUploaderMinimal
-        ctx-name={CTX_NAME}
-      />
+      {/* @ts-ignore */}
+      <AdapterFileUploaderMinimal class={classNameUploader} ctx-name={CTX_NAME} />
     </div>
   );
 };
