@@ -1,12 +1,12 @@
 import React, { type FC, useMemo } from "react";
 import * as LR from "@uploadcare/blocks";
+import "@uploadcare/blocks/web/lr-file-uploader-inline.min.css";
 import { customElementToReactComponent } from "@uploadcare/react-adapter";
 import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 import type { TProps } from "../types";
-import { getStyleSource } from "../default";
 import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
-import { getUserAgentIntegration } from "../../utils/getUserAgentIntegration.ts";
+import { getUserAgentIntegration } from "../../utils/getUserAgentIntegration";
 
 LR.registerBlocks(LR);
 
@@ -16,7 +16,6 @@ const AdapterFileUploaderInline = customElementToReactComponent({
   elClass: LR.FileUploaderMinimal,
 });
 
-const CSS_SRC_INLINE = getStyleSource("inline");
 export const FileUploaderInline: FC<TProps> = ({
   ctxName,
   className,
@@ -41,7 +40,7 @@ export const FileUploaderInline: FC<TProps> = ({
         {...eventHandlers}
       />
 
-      <AdapterFileUploaderInline ctx-name={CTX_NAME} css-src={CSS_SRC_INLINE} />
+      <AdapterFileUploaderInline ctx-name={CTX_NAME} />
     </div>
   );
 };

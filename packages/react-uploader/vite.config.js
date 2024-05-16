@@ -5,8 +5,11 @@ import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
+    cssCodeSplit: true,
     lib: {
-      entry: [resolve(__dirname, "src/libs.ts")],
+      entry: [
+        resolve(__dirname, "src/libs.ts"),
+      ],
       name: "@uploadcare/react-uploader",
 
       formats: ["es", "cjs"],
@@ -22,5 +25,7 @@ export default defineConfig({
       },
     },
   },
-  plugins: [dts({ rollupTypes: true, insertTypesEntry: true })],
+  plugins: [
+    dts({ rollupTypes: true, insertTypesEntry: true }),
+  ],
 });
