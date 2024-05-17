@@ -10,7 +10,7 @@ export type Options<
 > = {
   react: typeof React;
   tag: string;
-  elClass: { new (): I };
+  elClass: { new(): I };
   schemaEvents?: E;
 };
 
@@ -54,7 +54,7 @@ export const customElementToReactComponent = <
         Record<string, unknown>,
         Set<string>,
         I
-        // @ts-ignore
+      // @ts-ignore
       >(props, eventKeyOfProps, elClass);
 
       React.useLayoutEffect(() => {
