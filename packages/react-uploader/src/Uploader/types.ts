@@ -15,7 +15,7 @@ type TPrefixOnAndCamelCase<S extends string> = TExtraPrefixOn<TToCamelCase<S>>;
 
 export type TEventsSchema = {
   [K in keyof EventMap as TPrefixOnAndCamelCase<K>]: (
-    event: EventMap[K],
+    event: EventMap[K]["detail"],
   ) => void;
 };
 
