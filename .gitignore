@@ -2,3 +2,5 @@ node_modules
 dist
 .env
 docs
+
+.nx/cache
