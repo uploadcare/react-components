@@ -55,7 +55,8 @@
   "author": "",
   "license": "ISC",
   "workspaces": [
-    "packages/*"
+    "packages/react-adapter",
+    "packages/react-uploader"
   ],
   "devDependencies": {
     "@biomejs/biome": "1.6.4",
