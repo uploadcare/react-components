@@ -1,4 +1,5 @@
 const listenedEvents = new WeakMap<Element, Map<string, EventListenerObject>>();
+type THandleEvent = (e?: Event) => void;
 
 type TRegisterEvent<E> = {
   node: E;
@@ -12,7 +13,7 @@ const ensureEventMapForNode = (
   node: Element,
 ): Map<string, EventListenerObject> => {
   let events = listenedEvents.get(node);
-  if (!events) {
+  if (events === undefined) {
     events = new Map();
     listenedEvents.set(node, events);
   }
@@ -27,24 +28,28 @@ export const registerPropAndEvent = <E extends Element>({
   event,
 }: TRegisterEvent<E>) => {
   // Subscribe to the event if it is defined
-  if (event !== undefined && valueProp !== prevValueProp) {
-    const events = ensureEventMapForNode(node);
-    const handlerExists = events.has(event);
+  if (event !== undefined) {
+    if (valueProp !== prevValueProp) {
+      const events = ensureEventMapForNode(node);
+      const handlerExists = events.has(event);
+      let handler = events.get(event) as EventListenerObject;
 
-    if (valueProp) {
-      const handler: EventListenerObject = {
-        handleEvent: valueProp as (e?: Event) => void,
-      };
-      if (!handlerExists) {
-        node.addEventListener(event, handler);
+      if (valueProp !== undefined) {
+        if (!handlerExists) {
+          handler = { handleEvent: valueProp as THandleEvent };
+          events.set(event, handler);
+          // @ts-ignore
+          node.addEventListener(event, (event: CustomEvent) =>
+            handler.handleEvent(event.detail),
+          );
+        } else {
+          handler.handleEvent = valueProp as THandleEvent;
+        }
+      } else if (handlerExists) {
+        events.delete(event);
+        node.removeEventListener(event, handler);
       }
-      events.set(event, handler);
-    } else if (handlerExists) {
-      const handler = events.get(event);
-      node.removeEventListener(event, handler!);
-      events.delete(event);
     }
-
     return;
   }
 

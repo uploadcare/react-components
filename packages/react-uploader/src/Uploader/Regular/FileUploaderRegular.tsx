@@ -3,11 +3,10 @@ import * as LR from "@uploadcare/blocks";
 import { customElementToReactComponent } from "@uploadcare/react-adapter";
 import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
-import { getStyleSource } from "../default";
 import type { TProps } from "../types";
 
 import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
-import { getUserAgentIntegration } from "../../utils/getUserAgentIntegration.ts";
+import { getUserAgentIntegration } from "../../utils/getUserAgentIntegration";
 
 LR.registerBlocks(LR);
 
@@ -17,11 +16,10 @@ const AdapterFileUploaderRegular = customElementToReactComponent({
   elClass: LR.FileUploaderRegular,
 });
 
-const CSS_SRC_REGULAR = getStyleSource("regular");
-
 export const FileUploaderRegular: FC<TProps> = ({
   ctxName,
   className,
+  classNameUploader,
   apiRef,
   ...props
 }) => {
@@ -42,10 +40,8 @@ export const FileUploaderRegular: FC<TProps> = ({
         ctx-name={CTX_NAME}
         {...eventHandlers}
       />
-      <AdapterFileUploaderRegular
-        ctx-name={CTX_NAME}
-        css-src={CSS_SRC_REGULAR}
-      />
+      {/* @ts-ignore */}
+      <AdapterFileUploaderRegular class={classNameUploader} ctx-name={CTX_NAME} />
     </div>
   );
 };

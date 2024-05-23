@@ -14,7 +14,9 @@ type TExtraPrefixOn<S extends string> = `on${Capitalize<S>}`;
 type TPrefixOnAndCamelCase<S extends string> = TExtraPrefixOn<TToCamelCase<S>>;
 
 export type TEventsSchema = {
-  [K in keyof EventMap as TPrefixOnAndCamelCase<K>]: EventMap[K];
+  [K in keyof EventMap as TPrefixOnAndCamelCase<K>]: (
+    event: EventMap[K]["detail"],
+  ) => void;
 };
 
 type TRefUploadCtxProvider = {
@@ -27,6 +29,7 @@ type TPropsWithConfig = Partial<ConfigType>;
 
 type TDefaultProps = {
   className?: string;
+  classNameUploader?: string;
   ctxName?: string;
 };
 
