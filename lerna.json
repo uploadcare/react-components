@@ -6,9 +6,10 @@
       "createRelease": "github",
       "conventionalCommits": true,
       "allowBranch": [
-        "main"
+        "main",
+        "release"
       ],
-      "message": "chore(release): publish"
+      "message": "chore(release): publish",
     }
   }
 }
