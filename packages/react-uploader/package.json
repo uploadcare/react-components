@@ -1,7 +1,7 @@
 {
   "name": "@uploadcare/react-uploader",
   "description": "React component for file uploads using Uploadcare",
-  "version": "0.3.0-alpha.6",
+  "version": "0.3.0",
   "private": false,
   "type": "module",
   "files": [
