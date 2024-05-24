@@ -1,7 +1,7 @@
 {
   "name": "@uploadcare/react-uploader",
   "description": "React component for file uploads using Uploadcare",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": false,
   "type": "module",
   "files": [
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@uploadcare/blocks": "^0.39.1",
-    "@uploadcare/react-adapter": "0.2.0"
+    "@uploadcare/react-adapter": "^0.3.0"
   },
   "repository": {
     "type": "git",
