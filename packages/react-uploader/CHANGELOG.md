@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.4.0...@uploadcare/react-uploader@0.5.0) (2024-05-27)
+
+### Features
+
+- **react-uploader:** added ConditionalSuspense for SSR ([bb7b4fa](https://github.com/uploadcare/react-components/commit/bb7b4fa0cb495e2736673ce7aaa5c6b14a7a7209))
+
 # 0.4.0 (2024-05-24)
 
 ### Bug Fixes
