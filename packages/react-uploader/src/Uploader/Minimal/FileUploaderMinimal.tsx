@@ -7,6 +7,7 @@ import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
 import type { TProps } from "../types";
 import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
 import { getUserAgentIntegration } from "../../utils/getUserAgentIntegration";
+import { ConditionalSuspense, useIsBrowser } from "../../SSR/ConditionalSuspense";
 
 LR.registerBlocks(LR);
 
@@ -22,6 +23,7 @@ export const FileUploaderMinimal: FC<TProps> = ({
   className,
   classNameUploader,
   apiRef,
+  fallback,
   ...props
 }) => {
   const CTX_NAME = useMemo(() => ctxName ?? LR.UID.generate(), [ctxName]);
@@ -31,18 +33,22 @@ export const FileUploaderMinimal: FC<TProps> = ({
     [props],
   );
 
+  const isBrowser = useIsBrowser();
+
   return (
-    <div className={className}>
-      {/* @ts-ignore */}
-      <AdapterConfig userAgentIntegration={getUserAgentIntegration()} ctx-name={CTX_NAME} {...config} />
-      {/* @ts-ignore */}
-      <AdapterUploadCtxProvider
-        ref={apiRef}
-        ctx-name={CTX_NAME}
-        {...eventHandlers}
-      />
-      {/* @ts-ignore */}
-      <AdapterFileUploaderMinimal class={classNameUploader} ctx-name={CTX_NAME} />
-    </div>
+    <ConditionalSuspense condition={isBrowser} fallback={fallback} >
+      <div className={className}>
+        {/* @ts-ignore */}
+        <AdapterConfig userAgentIntegration={getUserAgentIntegration()} ctx-name={CTX_NAME} {...config} />
+        {/* @ts-ignore */}
+        <AdapterUploadCtxProvider
+          ref={apiRef}
+          ctx-name={CTX_NAME}
+          {...eventHandlers}
+        />
+        {/* @ts-ignore */}
+        <AdapterFileUploaderMinimal class={classNameUploader} ctx-name={CTX_NAME} />
+      </div>
+    </ConditionalSuspense>
   );
 };

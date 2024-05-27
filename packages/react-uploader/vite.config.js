@@ -17,7 +17,7 @@ export default defineConfig({
       fileName: "react-uploader",
     },
     rollupOptions: {
-      external: ["react"],
+      external: ["react", "@uploadcare/blocks"],
       output: {
         globals: {
           react: "React",
