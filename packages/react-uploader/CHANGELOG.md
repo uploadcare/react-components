@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.5.0...@uploadcare/react-uploader@0.5.1) (2024-05-29)
+
+### Bug Fixes
+
+- **react-uploader:** added import style in the Readme.md ([0c93ed3](https://github.com/uploadcare/react-components/commit/0c93ed39614b49cefcd7a9e46f02231571d626d1))
+
 # [0.5.0](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.4.0...@uploadcare/react-uploader@0.5.0) (2024-05-27)
 
 ### Features
