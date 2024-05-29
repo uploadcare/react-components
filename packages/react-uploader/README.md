@@ -58,7 +58,8 @@ Each component serves specific use cases and can be easily implemented into your
 ### Regular
 
 ```jsx
-import {FileUploaderRegular} from "@uploadcare/react-uploader";
+import { FileUploaderRegular } from "@uploadcare/react-uploader";
+import "@uploadcare/react-adapter/core.css";
 
 <FileUploaderRegular pubkey="YOUR_PUBLIC_KEY"/>;
 ```
@@ -66,7 +67,8 @@ import {FileUploaderRegular} from "@uploadcare/react-uploader";
 ### Inline
 
 ```jsx
-import {FileUploaderInline} from "@uploadcare/react-uploader";
+import { FileUploaderInline } from "@uploadcare/react-uploader";
+import "@uploadcare/react-adapter/core.css";
 
 <FileUploaderInline pubkey="YOUR_PUBLIC_KEY"/>;
 ```
@@ -74,7 +76,8 @@ import {FileUploaderInline} from "@uploadcare/react-uploader";
 ### Minimal
 
 ```jsx
-import {FileUploaderMinimal} from "@uploadcare/react-uploader";
+import { FileUploaderMinimal } from "@uploadcare/react-uploader";
+import "@uploadcare/react-adapter/core.css";
 
 <FileUploaderMinimal pubkey="YOUR_PUBLIC_KEY"/>;
 ```
@@ -91,7 +94,8 @@ You can customize the appearance of the React uploader using the className prop,
 classes to the uploader `FileUploader[Regular | Minimal | Inline]` wrapper.
 
 ```jsx
-import {FileUploaderRegular} from "@uploadcare/react-uploader";
+import { FileUploaderRegular } from "@uploadcare/react-uploader";
+import "@uploadcare/react-adapter/core.css";
 
 <FileUploaderRegular className="fileUploaderWrapper" pubkey="YOUR_PUBLIC_KEY"/>;
 ```
@@ -113,6 +117,7 @@ import {
     FileUploaderRegular,
     UploadCtxProvider
 } from "@uploadcare/react-uploader";
+import "@uploadcare/react-adapter/core.css";
 
 const Example = () => {
     const uploaderRef = useRef < InstanceType < UploadCtxProvider > | null > (null);
@@ -133,7 +138,8 @@ The principle of converting events from blocks to React Uploader:
 Example:
 
 ```jsx
-import {FileUploaderRegular} from "@uploadcare/react-uploader";
+import { FileUploaderRegular } from "@uploadcare/react-uploader";
+import "@uploadcare/react-adapter/core.css";
 
 <FileUploaderRegular
     pubkey="YOUR_PUBLIC_KEY"
