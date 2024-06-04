@@ -86,7 +86,7 @@ import "@uploadcare/react-uploader/core.css";
 
 An easy way to connect React-Uploader to your project and utilize the available API props.
 We provide a full set of props that are used in blocks. For review we suggest you to look at
-the [documentation](uc-docs-file-uploader-options).
+the [documentation][uc-docs-file-uploader-options].
 
 ## Styles
 
