@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.5.3...@uploadcare/react-uploader@0.5.4) (2024-06-11)
+
+### Bug Fixes
+
+- **suspense:** Fixed the implementation to apiRef. ([63a6253](https://github.com/uploadcare/react-components/commit/63a62539bbb9e561939fb76c1d90112dc8d92bc6))
+
 ## [0.5.3](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.5.2...@uploadcare/react-uploader@0.5.3) (2024-06-04)
 
 **Note:** Version bump only for package @uploadcare/react-uploader
