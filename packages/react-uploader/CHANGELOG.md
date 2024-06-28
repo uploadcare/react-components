@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.5](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.5.4...@uploadcare/react-uploader@0.5.5) (2024-06-28)
+
+### Bug Fixes
+
+- **types:** added OutputFileEntry types ([d1c731b](https://github.com/uploadcare/react-components/commit/d1c731b930122f74aaeeeb1299ac9a7cddce11f0))
+
 ## [0.5.4](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.5.3...@uploadcare/react-uploader@0.5.4) (2024-06-11)
 
 ### Bug Fixes
