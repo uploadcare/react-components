@@ -5,4 +5,5 @@ export { FileUploaderInline } from "./Uploader/Inline/FileUploaderInline";
 export { type TProps, UploadCtxProvider } from "./Uploader/types";
 export { type TEventsSchema } from './Uploader/types'
 
-export { defineLocale } from "@uploadcare/blocks"
+
+export { defineLocale, type OutputFileEntry } from "@uploadcare/blocks"
