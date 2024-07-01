@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.6.0...@uploadcare/react-uploader@0.6.1) (2024-07-01)
+
+### Bug Fixes
+
+- **react-uploader:** Added types export from blocks ([558090a](https://github.com/uploadcare/react-components/commit/558090ab9bbdab664ebd9a5faf1f61864990c023))
+
 # [0.6.0](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.5.5...@uploadcare/react-uploader@0.6.0) (2024-07-01)
 
 ### Features
