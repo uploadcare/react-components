@@ -1,10 +1,10 @@
 import React from "react";
 import { customElementToReactComponent } from "@uploadcare/react-adapter";
-import * as LR from "@uploadcare/blocks";
+import * as UC from "@uploadcare/file-uploader";
 
 export const AdapterUploadCtxProvider = customElementToReactComponent({
   react: React,
-  tag: "lr-upload-ctx-provider",
-  elClass: LR.UploadCtxProvider,
-  schemaEvents: LR.UploadCtxProvider.EventType,
+  tag: "uc-upload-ctx-provider",
+  elClass: UC.UploadCtxProvider,
+  schemaEvents: UC.UploadCtxProvider.EventType,
 });

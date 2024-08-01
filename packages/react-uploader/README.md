@@ -101,7 +101,7 @@ import "@uploadcare/react-uploader/core.css";
 ```
 
 ```css
-.fileUploaderWrapper lr-file-uploader-regular {
+.fileUploaderWrapper uc-file-uploader-regular {
 }
 ```
 

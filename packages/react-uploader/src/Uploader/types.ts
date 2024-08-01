@@ -1,13 +1,10 @@
-
 import type { Ref } from "react";
 import type {
   ConfigType,
   UploadCtxProvider,
   EventMap,
-} from "@uploadcare/blocks";
-import type {
-  TProps as TPropsConditionalSuspense
-} from "../SSR/ConditionalSuspense"
+} from "@uploadcare/file-uploader";
+import type { TProps as TPropsConditionalSuspense } from "../SSR/ConditionalSuspense";
 
 type TToCamelCase<S extends string> = S extends `${infer Head}-${infer Tail}`
   ? `${Lowercase<Head>}${Capitalize<TToCamelCase<Tail>>}`
@@ -42,4 +39,4 @@ export type TProps = TDefaultProps &
   TPropsWithEvents &
   TPropsWithConfig;
 
-export { UploadCtxProvider } from "@uploadcare/blocks";
+export { UploadCtxProvider } from "@uploadcare/file-uploader";
