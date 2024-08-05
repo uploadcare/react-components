@@ -7,9 +7,7 @@ export default defineConfig({
   build: {
     cssCodeSplit: true,
     lib: {
-      entry: [
-        resolve(__dirname, "src/libs.ts"),
-      ],
+      entry: [resolve(__dirname, "src/libs.ts")],
       name: "@uploadcare/react-uploader",
 
       formats: ["es", "cjs"],
@@ -17,7 +15,7 @@ export default defineConfig({
       fileName: "react-uploader",
     },
     rollupOptions: {
-      external: ["react", "@uploadcare/blocks"],
+      external: ["react", "@uploadcare/file-uploader"],
       output: {
         globals: {
           react: "React",
@@ -25,7 +23,5 @@ export default defineConfig({
       },
     },
   },
-  plugins: [
-    dts({ rollupTypes: true, insertTypesEntry: true }),
-  ],
+  plugins: [dts({ rollupTypes: true, insertTypesEntry: true })],
 });

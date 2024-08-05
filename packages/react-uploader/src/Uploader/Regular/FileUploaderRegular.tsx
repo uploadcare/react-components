@@ -1,6 +1,6 @@
 import React, { type FC, useMemo } from "react";
-import * as LR from "@uploadcare/blocks";
-import "@uploadcare/blocks/web/lr-file-uploader-regular.min.css";
+import * as UC from "@uploadcare/file-uploader";
+import "@uploadcare/file-uploader/web/uc-file-uploader-regular.min.css";
 import { customElementToReactComponent } from "@uploadcare/react-adapter";
 import { AdapterConfig } from "../core/AdapterConfig";
 import { AdapterUploadCtxProvider } from "../core/AdapterUploadCtxProvider";
@@ -8,14 +8,17 @@ import type { TProps } from "../types";
 
 import { getCalcPropertyOfProps } from "../../utils/getCalcPropertyOfProps";
 import { getUserAgentIntegration } from "../../utils/getUserAgentIntegration";
-import { ConditionalSuspense, useIsBrowser } from "../../SSR/ConditionalSuspense";
+import {
+  ConditionalSuspense,
+  useIsBrowser,
+} from "../../SSR/ConditionalSuspense";
 
-LR.registerBlocks(LR);
+UC.defineComponents(UC);
 
 const AdapterFileUploaderRegular = customElementToReactComponent({
   react: React,
-  tag: "lr-file-uploader-regular",
-  elClass: LR.FileUploaderRegular,
+  tag: "uc-file-uploader-regular",
+  elClass: UC.FileUploaderRegular,
 });
 
 export const FileUploaderRegular: FC<TProps> = ({
@@ -26,7 +29,7 @@ export const FileUploaderRegular: FC<TProps> = ({
   fallback,
   ...props
 }) => {
-  const CTX_NAME = useMemo(() => ctxName ?? LR.UID.generate(), [ctxName]);
+  const CTX_NAME = useMemo(() => ctxName ?? UC.UID.generate(), [ctxName]);
 
   const { eventHandlers, config } = useMemo(
     () => getCalcPropertyOfProps<TProps>(props),
@@ -49,6 +52,6 @@ export const FileUploaderRegular: FC<TProps> = ({
         {/* @ts-ignore */}
         <AdapterFileUploaderRegular class={classNameUploader} ctx-name={CTX_NAME} />
       </div>
-    </ConditionalSuspense >
+    </ConditionalSuspense>
   );
 };
