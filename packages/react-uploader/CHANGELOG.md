@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.6.1...@uploadcare/react-uploader@1.0.0) (2024-08-06)
+
+### Features
+
+- bump @uploadcare/file-uploader to v1 ([#41](https://github.com/uploadcare/react-components/issues/41)) ([5a390a6](https://github.com/uploadcare/react-components/commit/5a390a66af037674c76c4df766b04d7ae5b39e0c))
+
+### Reverts
+
+- Revert "chore(release): publish" ([40a240e](https://github.com/uploadcare/react-components/commit/40a240e043aca417b3d174d45a43ee20ae0dd7c2))
+
+### BREAKING CHANGES
+
+- There is no breaking changes actually. We just want to release v1.
+
 ## [0.6.1](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.6.0...@uploadcare/react-uploader@0.6.1) (2024-07-01)
 
 ### Bug Fixes
