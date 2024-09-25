@@ -5,20 +5,23 @@ import dts from "vite-plugin-dts";
 
 export default defineConfig({
   build: {
-    cssCodeSplit: true,
+    cssCodeSplit: false,
     lib: {
-      entry: [resolve(__dirname, "src/libs.ts")],
+      entry: {
+        nextjs: resolve(__dirname, "src/nextjs.ts"),
+        "react-uploader": resolve(__dirname, "src/libs.ts"),
+      },
+
       name: "@uploadcare/react-uploader",
 
       formats: ["es", "cjs"],
-
-      fileName: "react-uploader",
     },
     rollupOptions: {
-      external: ["react", "@uploadcare/file-uploader"],
+      external: ["react", "next", "next/dynamic", "@uploadcare/file-uploader"],
       output: {
         globals: {
           react: "React",
+          next: "next",
         },
       },
     },
