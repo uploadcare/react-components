@@ -4,9 +4,7 @@
   "version": "1.0.0",
   "private": false,
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/react-uploader.cjs",
   "module": "./dist/react-uploader.js",
   "types": "./dist/react-uploader.d.ts",
@@ -15,7 +13,12 @@
       "import": "./dist/react-uploader.js",
       "require": "./dist/react-uploader.cjs"
     },
-    "./core.css": "./dist/libs.css"
+    "./next": {
+      "import": "./dist/nextjs.js",
+      "require": "./dist/nextjs.cjs",
+      "types": "./dist/nextjs.d.ts"
+    },
+    "./core.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "tsc && vite build --watch",
@@ -24,7 +27,8 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "@types/react": "17 || 18"
+    "@types/react": "17 || 18",
+    "next": "13 || 14"
   },
   "dependencies": {
     "@uploadcare/file-uploader": "^1.2.0",

@@ -27,6 +27,7 @@ React principles.
     * [Styles](#styles)
     * [File Uploader API](#file-uploader-api)
     * [Events](#events)
+* [Next.js](#nextjs)
 * [Security issues](#security-issues)
 * [Feedback](#feedback)
 
@@ -120,8 +121,7 @@ import {
 import "@uploadcare/react-uploader/core.css";
 
 const Example = () => {
-    const uploaderRef = useRef < InstanceType < UploadCtxProvider > | null > (null);
-
+    const uploaderRef = useRef <InstanceType<UploadCtxProvider> | null>(null);
 
     <FileUploaderRegular apiRef={uploaderRef} pubkey="YOUR_PUBLIC_KEY"/>;
 }
@@ -171,6 +171,21 @@ import "@uploadcare/react-uploader/core.css";
 | common-upload-failed   | onCommonUploadFailed   |
 | change                 | onChange               |
 | group-created          | onGroupCreated         |
+
+## Next.js
+File Uploader does not support Server-side Rendering (SSR), we have a special import for nextjs that already has SSR disabled. 
+You will need to import with import `@uploadcare/react-uploader/next`
+
+```jsx
+'use client'
+import { FileUploaderRegular } from "@uploadcare/react-uploader/next";
+import "@uploadcare/react-uploader/core.css";
+
+function App() {
+    return <FileUploaderRegular pubkey="YOUR_PUBLIC_KEY" />
+};
+```
+
 
 ## Security issues
 
