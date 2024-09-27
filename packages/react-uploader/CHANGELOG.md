@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@1.0.0...@uploadcare/react-uploader@1.1.0) (2024-09-27)
+
+### Features
+
+- added chapter on nextjs ([1a7459d](https://github.com/uploadcare/react-components/commit/1a7459d1365d38a881b042573a98007f6dfc24a9))
+- **next:** added new import for nextjs with ssr disabled ([42e956f](https://github.com/uploadcare/react-components/commit/42e956f307779ae044d67bb72c843cbe6cbfb9aa))
+
 # [1.0.0](https://github.com/uploadcare/react-components/compare/@uploadcare/react-uploader@0.6.1...@uploadcare/react-uploader@1.0.0) (2024-08-06)
 
 ### Features
